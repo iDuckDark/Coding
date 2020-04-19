@@ -83,14 +83,35 @@ def is_edit_away(first, second):
     return True
 
 
+#  ============ 1.6 ============
+
+def compress(string):
+    compressed = ""
+    count_consecutive = 0
+    for i in range(len(string)):
+        count_consecutive += 1
+        if i + 1 >= len(string) or string[i] != string[i + 1]:
+            compressed += string[i]
+            compressed += str(count_consecutive)
+            count_consecutive = 0
+    return compressed if len(compressed) < len(string) else string
+
+
+#  ============ 1.7 ============
+
+def rotate_matrix(matrix):
+    return None
+
+
 #  ============ Main ============
 
 def main():
-    print("is Unique:", is_unique("abcdefghijklmnopqrstuvwxyz"))
-    print("is Permutation:", check_permutation("god", "dog"))
+    print("Is Unique:", is_unique("abcdefghijklmnopqrstuvwxyz"))
+    print("Is Permutation:", check_permutation("god", "dog"))
     print("URLify:", urlify("Mr John Smith    ", 13))
-    print("is Permutation of Palindrome:", is_permutation_of_palindrome("tact coa"))
-    print("is One Edit Away:", is_edit_away("pale", "ple"))
+    print("Is Permutation of Palindrome:", is_permutation_of_palindrome("tact coa"))
+    print("Is One Edit Away:", is_edit_away("pale", "ple"))
+    print("String Compression:", compress("aabcccccaaa"))
 
 
 main()
