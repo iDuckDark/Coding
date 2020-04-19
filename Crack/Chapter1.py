@@ -60,13 +60,37 @@ def is_permutation_of_palindrome(phrase):
     return odd_counter <= 1
 
 
+#  ============ 1.5 ============
+
+def is_edit_away(first, second):
+    if abs(len(first) - len(second)) > 1:
+        return False
+    if len(first) > len(second):
+        first, second = second, first
+    index1, index2 = 0, 0
+    found_difference = False
+    while index2 < len(second) and index1 < len(first):
+        if first[index1] != second[index2]:
+            if found_difference:
+                return False
+            else:
+                found_difference = True
+            if len(first) == len(second):
+                index1 += 1
+        else:
+            index1 += 1
+        index2 += 1
+    return True
+
+
 #  ============ Main ============
 
 def main():
-    print(is_unique("abcdefghijklmnopqrstuvwxyz"))
-    print(check_permutation("god", "dog"))
-    print(urlify("Mr John Smith    ", 13))
-    print(is_permutation_of_palindrome("tact coa"))
+    print("is Unique:", is_unique("abcdefghijklmnopqrstuvwxyz"))
+    print("is Permutation:", check_permutation("god", "dog"))
+    print("URLify:", urlify("Mr John Smith    ", 13))
+    print("is Permutation of Palindrome:", is_permutation_of_palindrome("tact coa"))
+    print("is One Edit Away:", is_edit_away("pale", "ple"))
 
 
 main()
