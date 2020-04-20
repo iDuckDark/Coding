@@ -120,30 +120,49 @@ def rotate_matrix(matrix):
 
 def zero_matrix(matrix):
     row_has_zero = False
-    col_has_false = False
+    col_has_zero = False
     for j in range(len(matrix[0])):
         if matrix[0][j] == 0:
             row_has_zero = True
             break
-
     for i in range(len(matrix)):
         if matrix[i][0] == 0:
             col_has_zero = True
             break
-
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             if matrix[i][j] == 0:
                 matrix[i][0] = 0
                 matrix[0][j] = 0
 
-    for i in range(len(matrix)):
-        if matrix[i][0] == 0:
-            print("nullify")
+    def nullify_row(row):
+        for _ in range(len(matrix[0])):
+            matrix[row][_] = 0
+
+    def nullify_col(col):
+        for _ in range(len(matrix)):
+            matrix[_][col] = 0
 
     for i in range(len(matrix)):
         if matrix[i][0] == 0:
-            print("nullify")
+            nullify_row(i)
+    for j in range(len(matrix[0])):
+        if matrix[0][j] == 0:
+            nullify_col(j)
+    if row_has_zero:
+        nullify_row(0)
+    if col_has_zero:
+        nullify_col(0)
+    return matrix
+
+
+#  ============ 1.8 ============
+
+def is_string_rotation(s1, s2):
+    if len(s1) == len(s2) and len(s1) > 0:
+        return s2 in s1 + s1
+    return False
+
 
 #  ============ Main ============
 
@@ -162,6 +181,16 @@ def main():
     ]
     rotate_matrix(matrix)
     print("Matrix Rotated:", matrix)
+
+    matrix = [
+        [1, 2, 3, 4],
+        [5, 0, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 15, 16],
+    ]
+    print("Zero Matrix:", zero_matrix(matrix))
+
+    print("String Rotation:", is_string_rotation("waterbottle", "erbottlewat"))
 
 
 main()
