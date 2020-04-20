@@ -100,8 +100,50 @@ def compress(string):
 #  ============ 1.7 ============
 
 def rotate_matrix(matrix):
-    return None
+    n = len(matrix)
+    if n == 0 or n != len(matrix[0]):
+        return False
+    for layer in range(n // 2):
+        first = layer
+        last = n - 1 - layer
+        for i in range(last):
+            offset = i - first
+            top = matrix[first][i]
+            matrix[first][i] = matrix[last - offset][first]
+            matrix[last - offset][first] = matrix[last][last - offset]
+            matrix[last][last - offset] = matrix[i][last]
+            matrix[i][last] = top
+    return True
 
+
+#  ============ 1.8 ============
+
+def zero_matrix(matrix):
+    row_has_zero = False
+    col_has_false = False
+    for j in range(len(matrix[0])):
+        if matrix[0][j] == 0:
+            row_has_zero = True
+            break
+
+    for i in range(len(matrix)):
+        if matrix[i][0] == 0:
+            col_has_zero = True
+            break
+
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == 0:
+                matrix[i][0] = 0
+                matrix[0][j] = 0
+
+    for i in range(len(matrix)):
+        if matrix[i][0] == 0:
+            print("nullify")
+
+    for i in range(len(matrix)):
+        if matrix[i][0] == 0:
+            print("nullify")
 
 #  ============ Main ============
 
@@ -112,6 +154,14 @@ def main():
     print("Is Permutation of Palindrome:", is_permutation_of_palindrome("tact coa"))
     print("Is One Edit Away:", is_edit_away("pale", "ple"))
     print("String Compression:", compress("aabcccccaaa"))
+    matrix = [
+        [5, 0, 0, 0],
+        [0, 4, 0, 0],
+        [0, 0, 3, 0],
+        [0, 0, 0, 2],
+    ]
+    rotate_matrix(matrix)
+    print("Matrix Rotated:", matrix)
 
 
 main()
