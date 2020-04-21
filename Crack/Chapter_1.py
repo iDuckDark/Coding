@@ -170,7 +170,8 @@ def main():
     print("Is Unique:", is_unique("abcdefghijklmnopqrstuvwxyz"))
     print("Is Permutation:", check_permutation("god", "dog"))
     print("URLify:", urlify("Mr John Smith    ", 13))
-    print("Is Permutation of Palindrome:", is_permutation_of_palindrome("tact coa"))
+    print("Is Permutation of Palindrome:",
+          is_permutation_of_palindrome("tact coa"))
     print("Is One Edit Away:", is_edit_away("pale", "ple"))
     print("String Compression:", compress("aabcccccaaa"))
     matrix = [
