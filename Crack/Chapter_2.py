@@ -38,24 +38,24 @@ class LinkedList:
                 current = current.next
         return head.next
 
-    # def delete(self, value):
-    #     current = self.head
-    #     if current is None:
-    #         return
-    #     if current.value == value:
-    #         self.head = current.next
-    #         return
-    #     previous = current
-    #     current = current.next
-    #     while current.next is not None:
-    #         if current.value == value:
-    #             previous.next = current.next
-    #         previous = current
-    #         current = current.next
-    #     if current.value == value:
-    #         previous.next = None
-    #     else:
-    #         raise Exception("Not found")
+    def delete(self, value):
+        current = self.head
+        if current is None:
+            return
+        if current.value == value:
+            self.head = current.next
+            return
+        previous = current
+        current = current.next
+        while current.next is not None:
+            if current.value == value:
+                previous.next = current.next
+            previous = current
+            current = current.next
+        if current.value == value:
+            previous.next = None
+        else:
+            raise Exception("Not found")
 
     def print(self):
         current = self.head
@@ -134,8 +134,10 @@ def _sumList(l1, l2, carry):
 def LinkedListExample():
     l1 = LinkedList()
     l2 = LinkedList()
-    for val in [7, 1, 6]: l1.add(val)
-    for val in [5, 9, 2]: l2.add(val)
+    for val in [7, 1, 6]:
+        l1.add(val)
+    for val in [5, 9, 2]:
+        l2.add(val)
     l1.print()
     l2.print()
 
@@ -168,28 +170,3 @@ def makeLoop():
     n4.next = n3
     n5.next = n3
     print(findBeginning(n2))
-
-
-# LinkedListExample()
-
-
-
-
-
-# l1 = LinkedList()
-# for val in [1, 3, 2, 3, 3]:
-#     l1.add(val)
-# l1.print()
-#
-# head = remove_all_n(l1.getHead(), 3)
-# head.print()
-
-#
-# def Func(n):
-#     if (n == 4):
-#         return 2
-#     else:
-#         return 2 * Func(n + 1)
-#
-#
-# print(Func(2))

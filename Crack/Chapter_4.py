@@ -1,5 +1,4 @@
 class Node:
-
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -39,15 +38,18 @@ class TreeNode:
                 current.left = Node(value)
 
     def getHeight(self, current):
-        if current is None: return 0
+        if current is None:
+            return 0
         return max(self.getHeight(current.left), self.getHeight(current.right)) + 1
 
     def isBalanced(self):
         return self._isBalanced(self.root)
 
     def _isBalanced(self, current):
-        if current is None: return True
-        heightDifference = abs(self.getHeight(current.left) - self.getHeight(current.right))
+        if current is None:
+            return True
+        heightDifference = abs(self.getHeight(
+            current.left) - self.getHeight(current.right))
         if heightDifference > 1:
             return False
         return self._isBalanced(current.left) and self._isBalanced(current.right)
