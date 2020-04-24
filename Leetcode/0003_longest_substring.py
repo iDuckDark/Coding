@@ -11,3 +11,11 @@ class Solution(object):
             max_length = max(max_length, len(str_list))
 
         return max_length
+
+
+solution = Solution()
+tests = ["abcabcbb", "bbbbb", "pwwkew"]
+
+for test in tests:
+    ans = solution.lengthOfLongestSubstring(test)
+    print(ans)
