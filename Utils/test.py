@@ -29,4 +29,7 @@ def main():
     functions = [foo1, foo2, foo3]
     print(functions[0])
 
-main()
+# main()
+
+string = f'string 123'
+print(string)
