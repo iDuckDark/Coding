@@ -29,7 +29,22 @@ def main():
     functions = [foo1, foo2, foo3]
     print(functions[0])
 
+
 # main()
 
 string = f'string 123'
 print(string)
+
+
+def is_even(num):
+    return num % 2 == 0
+
+
+randomList = list(range(10))
+filteredList = list(filter(is_even, randomList))
+filteredList2 = list(filter(lambda _: _ % 2 == 0, randomList))
+
+mappedList = list(map(is_even, randomList))
+
+print(filteredList, filteredList2)
+print(mappedList)
