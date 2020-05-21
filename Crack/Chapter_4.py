@@ -48,8 +48,7 @@ class TreeNode:
     def _isBalanced(self, current):
         if current is None:
             return True
-        heightDifference = abs(self.getHeight(
-            current.left) - self.getHeight(current.right))
+        heightDifference = abs(self.getHeight(current.left) - self.getHeight(current.right))
         if heightDifference > 1:
             return False
         return self._isBalanced(current.left) and self._isBalanced(current.right)

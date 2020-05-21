@@ -1,4 +1,6 @@
+# noinspection PyUnresolvedReferences
 from graph_examples import graph_1, graph_2
+
 
 def BFS(graph, start):
     visited, queue, path = set(), [start], []
@@ -9,5 +11,6 @@ def BFS(graph, start):
             path.append(current)
             queue.extend(graph[current])
     return path
+
 
 print(BFS(graph_1, "0"))

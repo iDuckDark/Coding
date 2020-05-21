@@ -1,5 +1,6 @@
 from graph_examples import graph_weighted
 
+
 def dijkstra(graph, start):
     nodes = graph.keys()
     distances = graph
@@ -24,5 +25,6 @@ def dijkstra(graph, start):
         candidates = [_ for _ in unvisited.items() if _[1]]
         current, currentDistance = sorted(candidates, key=lambda x: x[1])[0]
     print(visited)
+
 
 dijkstra(graph_weighted, 'A')
